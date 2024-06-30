@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckaro4fykxmwk"]
+
+[ext_resource type="PackedScene" uid="uid://c0l66ukuxfpqd" path="res://ui.tscn" id="1_fcx4i"]
+[ext_resource type="FontFile" uid="uid://cfijq7yxsuepx" path="res://mario sources/super-mario-bros-2/Super Mario Bros. 2.ttf" id="2_f6xi2"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="blackBG" type="ColorRect" parent="."]
+offset_right = 1181.0
+offset_bottom = 896.0
+color = Color(0, 0, 0, 1)
+
+[node name="UI" parent="." instance=ExtResource("1_fcx4i")]
+
+[node name="Gameover" type="Label" parent="."]
+offset_left = 430.0
+offset_top = 425.0
+offset_right = 754.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("2_f6xi2")
+theme_override_font_sizes/font_size = 36
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1

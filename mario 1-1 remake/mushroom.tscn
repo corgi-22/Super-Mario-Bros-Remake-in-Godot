@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnmpn51tlssbn"]
+
+[ext_resource type="Texture2D" uid="uid://cad37rh0mumep" path="res://mario sources/enemies/enemies.png" id="1_6hvyj"]
+[ext_resource type="Script" path="res://mushroom.gd" id="1_u8gcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ncu"]
+atlas = ExtResource("1_6hvyj")
+region = Rect2(60, 0, 26, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbj4u"]
+atlas = ExtResource("1_6hvyj")
+region = Rect2(0, 0, 27, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq5oa"]
+atlas = ExtResource("1_6hvyj")
+region = Rect2(30, 0, 27, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3h3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ncu")
+}],
+"loop": true,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbj4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq5oa")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1omg"]
+size = Vector2(16, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_830qh"]
+radius = 66.0681
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7kfm"]
+radius = 6.0
+
+[node name="Mushroom" type="CharacterBody2D"]
+script = ExtResource("1_u8gcv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+visibility_layer = 2
+position = Vector2(14, 11)
+sprite_frames = SubResource("SpriteFrames_q3h3l")
+animation = &"walk"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(8, 10.5)
+shape = SubResource("RectangleShape2D_j1omg")
+
+[node name="playerDetection" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetection"]
+position = Vector2(9, 10)
+shape = SubResource("CircleShape2D_830qh")
+
+[node name="weakPoint" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weakPoint"]
+position = Vector2(8, 6)
+shape = SubResource("CircleShape2D_i7kfm")
+
+[connection signal="body_entered" from="weakPoint" to="." method="_on_weak_point_body_entered"]

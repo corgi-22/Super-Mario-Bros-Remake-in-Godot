@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0l66ukuxfpqd"]
+
+[ext_resource type="FontFile" uid="uid://cfijq7yxsuepx" path="res://mario sources/super-mario-bros-2/Super Mario Bros. 2.ttf" id="1_8wom2"]
+[ext_resource type="Script" path="res://World.gd" id="2_60m6p"]
+[ext_resource type="Script" path="res://Coins.gd" id="3_0qrn1"]
+[ext_resource type="Script" path="res://Scores.gd" id="4_edqv0"]
+
+[sub_resource type="GDScript" id="GDScript_loyj2"]
+script/source = "extends Label
+
+func _process(delta):
+	text = \"time\" + \"\\n\" + str(Global.time)
+"
+
+[sub_resource type="GDScript" id="GDScript_oyjxm"]
+script/source = "extends Label
+
+
+func _process(delta):
+	text = \"lives\" + \"\\n\" + str(Global.HP)
+"
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Timer" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 204.0
+offset_top = 5.0
+offset_right = 324.0
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8wom2")
+theme_override_font_sizes/font_size = 30
+text = "time"
+horizontal_alignment = 1
+script = SubResource("GDScript_loyj2")
+
+[node name="HP" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 35.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_8wom2")
+theme_override_font_sizes/font_size = 30
+text = "LIVES"
+horizontal_alignment = 1
+script = SubResource("GDScript_oyjxm")
+
+[node name="World" type="Label" parent="."]
+offset_left = 458.0
+offset_top = 5.0
+offset_right = 728.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_8wom2")
+theme_override_font_sizes/font_size = 30
+text = "world
+"
+horizontal_alignment = 1
+script = ExtResource("2_60m6p")
+
+[node name="Coins" type="Label" parent="."]
+offset_left = 255.0
+offset_top = 5.0
+offset_right = 405.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_8wom2")
+theme_override_font_sizes/font_size = 30
+text = "coins
+"
+horizontal_alignment = 1
+script = ExtResource("3_0qrn1")
+
+[node name="Scores" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 151.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("1_8wom2")
+theme_override_font_sizes/font_size = 30
+text = "Score"
+horizontal_alignment = 1
+script = ExtResource("4_edqv0")

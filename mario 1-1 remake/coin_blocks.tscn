@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://kf2r3k7sh05g"]
+
+[ext_resource type="Script" path="res://coin_blocks.gd" id="1_4mxic"]
+[ext_resource type="Texture2D" uid="uid://ctgb401ne2lwr" path="res://mario sources/tiles/tiles-2.png" id="1_5bfjb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o5s4"]
+atlas = ExtResource("1_5bfjb")
+region = Rect2(368, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m02x"]
+atlas = ExtResource("1_5bfjb")
+region = Rect2(384, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8v2o"]
+atlas = ExtResource("1_5bfjb")
+region = Rect2(400, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58clp"]
+atlas = ExtResource("1_5bfjb")
+region = Rect2(416, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62lcf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o5s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m02x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8v2o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58clp")
+}],
+"loop": true,
+"name": &"triggered",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov5jc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag4ym"]
+size = Vector2(14, 6)
+
+[node name="CoinBlocks" type="StaticBody2D"]
+script = ExtResource("1_4mxic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_62lcf")
+animation = &"triggered"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_ov5jc")
+
+[node name="playCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playCollision"]
+position = Vector2(8, 14)
+shape = SubResource("RectangleShape2D_ag4ym")
+
+[connection signal="body_entered" from="playCollision" to="." method="_on_play_collision_body_entered"]

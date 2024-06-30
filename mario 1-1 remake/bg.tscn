@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6n404foc1gpy"]
+
+[ext_resource type="Texture2D" uid="uid://bvqq6qstu7cy2" path="res://mario sources/1-1 background/bg-1-1.png" id="1_74p64"]
+
+[node name="BG" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="sky" type="ColorRect" parent="ParallaxLayer"]
+offset_right = 3376.0
+offset_bottom = 232.0
+color = Color(0.359375, 0.578125, 0.984375, 1)
+
+[node name="deepBlue" type="ColorRect" parent="ParallaxLayer"]
+offset_top = 232.0
+offset_right = 3376.0
+offset_bottom = 472.0
+color = Color(0.105469, 0.347656, 0.597656, 1)
+
+[node name="blackBG" type="ColorRect" parent="ParallaxLayer"]
+offset_left = 768.0
+offset_top = 232.0
+offset_right = 1024.0
+offset_bottom = 472.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bg-1-1" type="Sprite2D" parent="ParallaxLayer"]
+visible = false
+position = Vector2(1688, 234)
+texture = ExtResource("1_74p64")

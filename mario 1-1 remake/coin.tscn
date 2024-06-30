@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c24b4r3ayykg"]
+
+[ext_resource type="Texture2D" uid="uid://cdhlrc3qhd8nn" path="res://mario sources/items/items.png" id="1_8b1qw"]
+[ext_resource type="Script" path="res://coin.gd" id="2_dhfej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47wuf"]
+atlas = ExtResource("1_8b1qw")
+region = Rect2(124, 94, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7jwh"]
+atlas = ExtResource("1_8b1qw")
+region = Rect2(154, 94, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c21p1"]
+atlas = ExtResource("1_8b1qw")
+region = Rect2(184, 94, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jchks"]
+atlas = ExtResource("1_8b1qw")
+region = Rect2(214, 94, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7scwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47wuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7jwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c21p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jchks")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Coin" type="CharacterBody2D"]
+script = ExtResource("2_dhfej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_7scwt")
+animation = &"idle"

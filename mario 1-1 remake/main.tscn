@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmvpm2bi28lpd"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2kh5r"]
+[ext_resource type="Texture2D" uid="uid://bvqq6qstu7cy2" path="res://mario sources/1-1 background/bg-1-1.png" id="2_b4iqc"]
+[ext_resource type="Texture2D" uid="uid://gdajwmvckmxj" path="res://mario sources/logo/nes-smb.png" id="3_mqs2p"]
+[ext_resource type="FontFile" uid="uid://cfijq7yxsuepx" path="res://mario sources/super-mario-bros-2/Super Mario Bros. 2.ttf" id="4_1wxwp"]
+[ext_resource type="PackedScene" uid="uid://kf2r3k7sh05g" path="res://coin_blocks.tscn" id="5_m4ciw"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_2kh5r")
+
+[node name="Bg-1-1" type="Sprite2D" parent="."]
+position = Vector2(1688, 240)
+texture = ExtResource("2_b4iqc")
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(154, 72)
+texture = ExtResource("3_mqs2p")
+
+[node name="start hint" type="Label" parent="."]
+texture_filter = 1
+offset_left = 75.0
+offset_top = 173.0
+offset_right = 235.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("4_1wxwp")
+theme_override_font_sizes/font_size = 8
+text = "press enter to start"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.7, 3.7)
+limit_left = 0
+limit_top = 0
+
+[node name="nintendo" type="Label" parent="."]
+texture_filter = 1
+offset_left = 131.0
+offset_top = 118.0
+offset_right = 243.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("4_1wxwp")
+theme_override_font_sizes/font_size = 8
+text = "©1985 Nintendo"
+
+[node name="CoinBlocks" parent="." instance=ExtResource("5_m4ciw")]
+position = Vector2(256, 144)
+
+[node name="remake" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 122.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("4_1wxwp")
+theme_override_font_sizes/font_size = 8
+text = "remade by corgi"
+
+[node name="world 1-1" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 2.0
+offset_right = 296.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("4_1wxwp")
+theme_override_font_sizes/font_size = 8
+text = "world 1-1"

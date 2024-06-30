@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceam73q4ojjyb"]
+
+[ext_resource type="Texture2D" uid="uid://cad37rh0mumep" path="res://mario sources/enemies/enemies.png" id="1_03lma"]
+[ext_resource type="Script" path="res://smashMushroom.gd" id="1_mw0ls"]
+
+[sub_resource type="Animation" id="Animation_xr2vb"]
+resource_name = "Dead"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ayuuw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qq4i"]
+_data = {
+"Dead": SubResource("Animation_xr2vb"),
+"RESET": SubResource("Animation_ayuuw")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ncu"]
+atlas = ExtResource("1_03lma")
+region = Rect2(60, 0, 26, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htp55"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ncu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ncu")
+}],
+"loop": false,
+"name": &"Dead",
+"speed": 5.0
+}]
+
+[node name="smashMushroom" type="Node2D"]
+script = ExtResource("1_mw0ls")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8qq4i")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(14, 14)
+sprite_frames = SubResource("SpriteFrames_htp55")
+animation = &"Dead"

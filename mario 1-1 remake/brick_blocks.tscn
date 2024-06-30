@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc7hqyta5ognh"]
+
+[ext_resource type="Texture2D" uid="uid://ctgb401ne2lwr" path="res://mario sources/tiles/tiles-2.png" id="1_xj8u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqslq"]
+atlas = ExtResource("1_xj8u2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vooa8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqslq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msljw"]
+size = Vector2(16, 16)
+
+[node name="BrickBlocks" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_vooa8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_msljw")
