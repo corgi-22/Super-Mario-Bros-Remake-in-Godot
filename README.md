@@ -1,12 +1,27 @@
-# Remake Super Mario Bros in Godot
- Remake NES Mario game using Godot.
-自主學習計畫-使用開源引擎Godot實作超級瑪莉歐兄弟
--
-看成果可以找exe檔下載，
-已完成場1-1場景製作和小的瑪莉歐，跟蘑菇作為敵人，可以互動的金幣方塊，還有計分系統生命系統以及開始畫面製作。
+# Super Mario Bros Remake in Godot
 
-You can find the exe file for download to see the progress. The first level (1-1) has been completed, including a small Mario character, mushrooms(?) as enemies, interactive coin blocks, a scoring system, a life system, and a start menu.
+## Overview
+This project is a remake of the classic NES game **Super Mario Bros** using the open-source game engine **Godot**. The objective is to recreate the iconic platformer experience while learning game development principles and best practices.
 
-操作使用W(跳躍)、A(向左移動)、D(向右移動)，蹲下還沒做好。
+## Features
+- **Level 1-1 Completed**: Play with the first level of the game, functioning:
+  - A playable Mario character.
+  - Mushrooms as enemies.
+  - Interactive coin blocks that players can hit.
+  - A scoring system that tracks points.
+  - A life system that manages player lives.
+  - An engaging start menu to kick off the adventure.
 
-Using the key W to jump, A to move backward, D to move forward. PS the pipe hasn't done yet.
+## Controls
+- **W**: Jump
+- **A**: Move Left
+- **D**: Move Right
+- (Crouching feature is still in development.)
+
+## Additional Notes
+- The pipe mechanics are not yet implemented.
+
+## Future Plans
+- Implement the crouching feature.
+- Add pipe interactions.
+- Expand levels. 
